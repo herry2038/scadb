@@ -24,7 +24,7 @@ http://pan.baidu.com/s/1dEHPKAX
 # 二、安装步骤
 1、启动MySQL，在mysql上创建scadb用户，如下所示：
 > mysql -uroot
-mysql > grant all on *.* to scadb identified by 'scadb' ;
+> mysql > grant all on *.* to scadb identified by 'scadb' ;
 
 2、安装好jdk1.8， 并设置好JAVA_HOME
 > export JAVA_HOME=<JDK_PATH>
@@ -39,15 +39,15 @@ scadb-tools_2.11-1.0.0-bin.tar.gz
 
 
 >  mkdir /opt/scadb
-cd /opt/scadb
-tar xzf /tmp/scadb_2.11-1.0.0-bin.tar.gz
-tar xzf /tmp/scadb-admin_2.11-1.0.0-bin.tar.gz
-tar xzf /tmp/scadb-tools_2.11-1.0.0-bin.tar.gz
+> cd /opt/scadb
+> tar xzf /tmp/scadb_2.11-1.0.0-bin.tar.gz
+> tar xzf /tmp/scadb-admin_2.11-1.0.0-bin.tar.gz
+> tar xzf /tmp/scadb-tools_2.11-1.0.0-bin.tar.gz
 
 > ls -1
-scadb_2.11-1.0.0
-scadb-admin_2.11-1.0.0
-scadb-tools_2.11-1.0.0
+> scadb_2.11-1.0.0
+> scadb-admin_2.11-1.0.0
+> scadb-tools_2.11-1.0.0
 
 
 这时候我们可以看到在/opt/scadb下面有三个子目录。
@@ -62,7 +62,7 @@ InitEnv工具有很多参数，每个参数都有缺省的值，对于一个测�
 6、启动scadb服务进程
 
 > nohup /opt/scadb/scadb-admin_2.11-1.0.0/bin/scadb admin &
-nohup /opt/scadb/scadb_2.11-1.0.0/bin/scadb server &
+> nohup /opt/scadb/scadb_2.11-1.0.0/bin/scadb server &
 
 
 # 三、使用scadb的docker镜像
@@ -111,15 +111,15 @@ show create table a ;
 
 4、 插入数据
 > insert into a ( id,name ) values ( 1,'123') ;
-insert into a ( id,name ) values ( 2,'123') ;
-insert into a ( id,name ) values ( 3,'123') ;
-insert into a ( id,name ) values ( 4,'123') ;
-insert into a ( id,name ) values ( 5,'123') ;
-insert into a ( id,name ) values ( 6,'123') ;
-insert into a ( id,name ) values ( 7,'123') ;
-insert into a ( id,name ) values ( 8,'123') ;
-insert into a ( id,name ) values ( 9,'123') ;
-insert into a ( id,name ) values ( 10,'123') ;
+> insert into a ( id,name ) values ( 2,'123') ;
+> insert into a ( id,name ) values ( 3,'123') ;
+> insert into a ( id,name ) values ( 4,'123') ;
+> insert into a ( id,name ) values ( 5,'123') ;
+> insert into a ( id,name ) values ( 6,'123') ;
+> insert into a ( id,name ) values ( 7,'123') ;
+> insert into a ( id,name ) values ( 8,'123') ;
+> insert into a ( id,name ) values ( 9,'123') ;
+> insert into a ( id,name ) values ( 10,'123') ;
 
 5、 查询数据
 > select id,name from a where id=1 ;
