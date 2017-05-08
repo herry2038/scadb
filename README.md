@@ -9,7 +9,7 @@ scadb是一个轻量级的高性能MySQL中间件产品，可以支持MySQL分�
 4、机房感知功能
 5、跨机房的高可用性
 
-
+系统架构请访问：http://www.jianshu.com/p/f4ee226a1ba9
 
 
 # 一、安装准备
@@ -23,11 +23,11 @@ http://pan.baidu.com/s/1dEHPKAX
 
 # 二、安装步骤
 1、启动MySQL，在mysql上创建scadb用户，如下所示：
-mysql -uroot 
+> mysql -uroot
 mysql > grant all on *.* to scadb identified by 'scadb' ;
 
 2、安装好jdk1.8， 并设置好JAVA_HOME
-export JAVA_HOME=<JDK_PATH>
+> export JAVA_HOME=<JDK_PATH>
 
 3、启动zookeeper
 
@@ -38,13 +38,13 @@ scadb-tools_2.11-1.0.0-bin.tar.gz
 把他们解压缩到/opt/scadb下面:
 
 
-> # mkdir /opt/scadb
-# cd /opt/scadb
-# tar xzf /tmp/scadb_2.11-1.0.0-bin.tar.gz
-# tar xzf /tmp/scadb-admin_2.11-1.0.0-bin.tar.gz
-# tar xzf /tmp/scadb-tools_2.11-1.0.0-bin.tar.gz
+>  mkdir /opt/scadb
+cd /opt/scadb
+tar xzf /tmp/scadb_2.11-1.0.0-bin.tar.gz
+tar xzf /tmp/scadb-admin_2.11-1.0.0-bin.tar.gz
+tar xzf /tmp/scadb-tools_2.11-1.0.0-bin.tar.gz
 
-# ls -1
+> ls -1
 scadb_2.11-1.0.0
 scadb-admin_2.11-1.0.0
 scadb-tools_2.11-1.0.0
@@ -55,13 +55,13 @@ scadb-tools_2.11-1.0.0
 5、初始化scadb的运行环境
 
 我们使用scadb-tools中的InitEnv工具来进行初始化，如下所示：
-# /opt/scadb/scadb-tools_2.11-1.0.0/bin/scadb org.herry2038.scadb.tools.InitEnv --zk localhost:2181
+> /opt/scadb/scadb-tools_2.11-1.0.0/bin/scadb org.herry2038.scadb.tools.InitEnv --zk localhost:2181
 
 InitEnv工具有很多参数，每个参数都有缺省的值，对于一个测试环境我们基本上不需要制定任何参数。
 
 6、启动scadb服务进程
 
-nohup /opt/scadb/scadb-admin_2.11-1.0.0/bin/scadb admin &
+> nohup /opt/scadb/scadb-admin_2.11-1.0.0/bin/scadb admin &
 nohup /opt/scadb/scadb_2.11-1.0.0/bin/scadb server &
 
 
