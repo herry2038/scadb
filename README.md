@@ -12,7 +12,7 @@ scadb是一个轻量级的高性能MySQL中间件产品，可以支持MySQL分�
 
 
 
-一、安装准备
+# 一、安装准备
 
 1、安装好mysql
 2、下载JDK1.8的安装文件
@@ -21,7 +21,7 @@ scadb是一个轻量级的高性能MySQL中间件产品，可以支持MySQL分�
 http://pan.baidu.com/s/1dEHPKAX
 
 
-二、安装步骤
+# 二、安装步骤
 1、启动MySQL，在mysql上创建scadb用户，如下所示：
 mysql -uroot 
 mysql > grant all on *.* to scadb identified by 'scadb' ;
@@ -38,7 +38,7 @@ scadb-tools_2.11-1.0.0-bin.tar.gz
 把他们解压缩到/opt/scadb下面:
 
 
-# mkdir /opt/scadb
+> # mkdir /opt/scadb
 # cd /opt/scadb
 # tar xzf /tmp/scadb_2.11-1.0.0-bin.tar.gz
 # tar xzf /tmp/scadb-admin_2.11-1.0.0-bin.tar.gz
@@ -65,16 +65,16 @@ nohup /opt/scadb/scadb-admin_2.11-1.0.0/bin/scadb admin &
 nohup /opt/scadb/scadb_2.11-1.0.0/bin/scadb server &
 
 
-三、使用scadb的docker镜像
+# 三、使用scadb的docker镜像
 
 1. 下载镜像
-# docker pull herry2038/scadb
+> # docker pull herry2038/scadb
 
 2. 运行镜像
-# docker run -d --name scadb herry2038/scadb 
+> # docker run -d --name scadb herry2038/scadb
 
 3. 进入镜像
-# sudo docker exec -t -i scadb /bin/bash
+> # sudo docker exec -t -i scadb /bin/bash
 
 在镜像中开始使用scadb，见第4节：使用scadb
 
@@ -84,13 +84,13 @@ nohup /opt/scadb/scadb_2.11-1.0.0/bin/scadb server &
 1、 连接到scadb
 
 scadb的缺省端口号是9527
-# mysql -utest -ptest -h127.0.0.1 -P9527
+> # mysql -utest -ptest -h127.0.0.1 -P9527
 
 
 2、 创建表
 在命令行输入如下sql语句：
 
- /*!scadb:partitionkey=id rule=rule10*/CREATE TABLE a (
+>  /*!scadb:partitionkey=id rule=rule10*/CREATE TABLE a (
 `id` BIGINT(20) NOT NULL DEFAULT '0',
 `name` VARCHAR(50) NULL DEFAULT NULL,
 `t` DATETIME NULL DEFAULT NULL,
@@ -106,11 +106,11 @@ COLLATE='utf8_bin' ENGINE=InnoDB ;
 
 3、 查看系统中的表
 
-show tables ;
+> show tables ;
 show create table a ;
 
 4、 插入数据
-insert into a ( id,name ) values ( 1,'123') ;
+> insert into a ( id,name ) values ( 1,'123') ;
 insert into a ( id,name ) values ( 2,'123') ;
 insert into a ( id,name ) values ( 3,'123') ;
 insert into a ( id,name ) values ( 4,'123') ;
@@ -122,10 +122,10 @@ insert into a ( id,name ) values ( 9,'123') ;
 insert into a ( id,name ) values ( 10,'123') ;
 
 5、 查询数据
-select id,name from a where id=1 ;
+> select id,name from a where id=1 ;
 
 6、 更新数据
-update a set name='234' where id=1 ;
+> update a set name='234' where id=1 ;
 
 7、 删除数据
-delete from a where id=1 ;
+> delete from a where id=1 ;
