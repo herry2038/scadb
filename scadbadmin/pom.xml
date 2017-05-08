@@ -7,13 +7,13 @@
   <parent>
     <groupId>org.herry2038.scadb</groupId>
     <artifactId>scadb-parent_2.11</artifactId>
-    <version>0.1.0</version>
+    <version>1.0.0</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
 
-  <artifactId>scadb-admin-2.11</artifactId>
+  <artifactId>scadb-admin_2.11</artifactId>
   <packaging>jar</packaging>
-  <name>Scadb Project network mysql POM</name>
+  <name>Scadb Admin POM</name>
   <url>http://yuxianbin.254.xuelon.cn</url>
   <properties>
     <sbt.project.name>scadb-admin</sbt.project.name>
@@ -21,30 +21,52 @@
 
   <dependencies>
     <!-- Core dependencies -->
-    
+    <dependency>
+      <groupId>org.herry2038.scadb</groupId>
+      <artifactId>scadb-network-common_${scala.binary.version}</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.herry2038.scadb</groupId>
+      <artifactId>scadb-network-mysql_${scala.binary.version}</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.herry2038.scadb</groupId>
+      <artifactId>scadb-config_${scala.binary.version}</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>druid</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.curator</groupId>
+      <artifactId>curator-framework</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.curator</groupId>
+      <artifactId>curator-recipes</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.scala-lang</groupId>
+      <artifactId>scala-library</artifactId>
+      <version>${scala.version}</version>
+    </dependency>
 
     <!-- Provided dependencies -->
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-api</artifactId>
-      <scope>provided</scope>
-    </dependency>
-    
+
 
     <!-- Test dependencies -->
     <dependency>
-      <groupId>log4j</groupId>
-      <artifactId>log4j</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
       <groupId>org.mockito</groupId>
       <artifactId>mockito-core</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-log4j12</artifactId>
       <scope>test</scope>
     </dependency>
   </dependencies>
@@ -53,16 +75,23 @@
     <outputDirectory>target/scala-${scala.binary.version}/classes</outputDirectory>
     <testOutputDirectory>target/scala-${scala.binary.version}/test-classes</testOutputDirectory>
     <plugins>
+
       <!-- Create a test-jar so network-shuffle can depend on our test utilities. -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-jar-plugin</artifactId>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>2.2.1</version>
+        <configuration>
+          <descriptors>
+            <descriptor>../assembly/assembly.xml</descriptor>
+          </descriptors>
+        </configuration>
         <executions>
           <execution>
-            <id>test-jar-on-test-compile</id>
-            <phase>test-compile</phase>
+            <id>make-assembly</id>
+            <phase>package</phase>
             <goals>
-              <goal>test-jar</goal>
+              <goal>single</goal>
             </goals>
           </execution>
         </executions>

@@ -7,11 +7,11 @@ public class SysVariables {
 	private static Map<String,String> mapVariables ;
 	static {
 		mapVariables = new HashMap<String,String>() ;
-		mapVariables.put("version", "distdb-0.0.1") ;
-		mapVariables.put("version_comment", "distdb-0.0.1") ;
+		mapVariables.put("version", "scadb-0.0.1") ;
+		mapVariables.put("version_comment", "scadb-0.0.1") ;
 		mapVariables.put("session.autocommit", "true") ;
 		mapVariables.put("version_compile_os", "Linux") ;
-		mapVariables.put("hostname", "distdb") ;
+		mapVariables.put("hostname", "scadb") ;
 		mapVariables.put("uptime", "100") ;
 		mapVariables.put("autocommit","true") ;
 		mapVariables.put("auto_increment_increment", "1") ;

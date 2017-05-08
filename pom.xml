@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>  
   <groupId>org.herry2038.scadb</groupId>
   <artifactId>scadb-parent_2.11</artifactId>
-  <version>0.1.0</version>
+  <version>1.0.0</version>
   <packaging>pom</packaging>
   <name>Scadb Project Parent POM</name>
   <url>http://yuxianbin.254.xuelon.cn</url>
@@ -33,23 +33,25 @@
     <module>scadb</module>
     <module>scadbadmin</module>
     <module>scadbconf</module>
+    <module>scadbtools</module>
   </modules>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <java.version>1.7</java.version>
+    <java.version>1.8</java.version>
     <maven.version>3.3.9</maven.version>
     <sbt.project.name>scadb</sbt.project.name>
     <slf4j.version>1.7.16</slf4j.version>
     <log4j.version>1.2.17</log4j.version>    
     <zookeeper.version>3.4.5</zookeeper.version>
-    <curator.version>2.4.0</curator.version>        
+    <curator.version>2.7.1</curator.version>
     <scala.version>2.11.8</scala.version>
     <scala.binary.version>2.11</scala.binary.version>
     <commons-io.version>2.4</commons-io.version>
     <commons-lang3.version>3.5</commons-lang3.version>
     <maven-antrun.version>1.8</maven-antrun.version>
+    <gson.version>1.7.1</gson.version>
 
     <test.java.home>${java.home}</test.java.home>
     <test.exclude.tags></test.exclude.tags>
@@ -117,21 +119,29 @@
         <artifactId>commons-lang3</artifactId>
         <version>${commons-lang3.version}</version>
       </dependency>
-      
+
+      <dependency>
+        <groupId>commons-io</groupId>
+        <artifactId>commons-io</artifactId>
+        <version>${commons-io.version}</version>
+      </dependency>
       <dependency>
         <groupId>org.slf4j</groupId>
         <artifactId>slf4j-api</artifactId>
-        <version>${slf4j.version}</version>        
+        <version>${slf4j.version}</version>
+        <scope>compile</scope>
       </dependency>
       <dependency>
         <groupId>org.slf4j</groupId>
         <artifactId>slf4j-log4j12</artifactId>
-        <version>${slf4j.version}</version>        
+        <version>${slf4j.version}</version>
+        <scope>compile</scope>
       </dependency>      
       <dependency>
         <groupId>log4j</groupId>
         <artifactId>log4j</artifactId>
-        <version>${log4j.version}</version>        
+        <version>${log4j.version}</version>
+        <scope>compile</scope>
       </dependency>
       
       <dependency>
@@ -139,6 +149,7 @@
         <artifactId>scala-compiler</artifactId>
         <version>${scala.version}</version>
       </dependency>
+
       <dependency>
         <groupId>org.scala-lang</groupId>
         <artifactId>scala-reflect</artifactId>
@@ -165,6 +176,19 @@
         <version>2.2.6</version>
         <scope>test</scope>
       </dependency>
+
+      <dependency>
+        <groupId>com.google.code.gson</groupId>
+        <artifactId>gson</artifactId>
+        <version>${gson.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>com.alibaba</groupId>
+        <artifactId>druid</artifactId>
+        <version>1.0.29</version>
+      </dependency>
+
 
       <dependency>
         <groupId>org.specs2</groupId>
@@ -201,7 +225,6 @@
         <groupId>org.apache.curator</groupId>
         <artifactId>curator-recipes</artifactId>
         <version>${curator.version}</version>
-        <scope>${hadoop.deps.scope}</scope>
         <exclusions>
           <exclusion>
             <groupId>org.jboss.netty</groupId>
@@ -247,9 +270,11 @@
               </goals>
               <configuration>
                 <rules>
+                  <!--
                   <requireMavenVersion>
                     <version>${maven.version}</version>
                   </requireMavenVersion>
+                  -->
                   <requireJavaVersion>
                     <version>${java.version}</version>
                   </requireJavaVersion>
@@ -543,6 +568,7 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-source-plugin</artifactId>
       </plugin>
+      <!--
       <plugin>
         <groupId>org.scalastyle</groupId>
         <artifactId>scalastyle-maven-plugin</artifactId>
@@ -567,6 +593,7 @@
           </execution>
         </executions>
       </plugin>
+
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-checkstyle-plugin</artifactId>
@@ -588,7 +615,7 @@
           </execution>
         </executions>
       </plugin>
-
+      -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-antrun-plugin</artifactId>
@@ -618,6 +645,7 @@
       <plugin>
         <groupId>org.scalatest</groupId>
         <artifactId>scalatest-maven-plugin</artifactId>
+        <version>1.0</version>
       </plugin>
       <!-- Build test-jar's for all projects, since some projects depend on tests from others -->
       <plugin>

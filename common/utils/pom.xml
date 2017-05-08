@@ -6,11 +6,11 @@
   <parent>
     <groupId>org.herry2038.scadb</groupId>
     <artifactId>scadb-parent_2.11</artifactId>
-    <version>0.1.0</version>
+    <version>1.0.0</version>
     <relativePath>../../pom.xml</relativePath>
   </parent>
 
-  <artifactId>scadb-util-2.11</artifactId>
+  <artifactId>scadb-util_2.11</artifactId>
   <packaging>jar</packaging>
   <name>Scadb Project utils POM</name>
   <url>http://yuxianbin.254.xuelon.cn</url>
@@ -20,30 +20,37 @@
 
   <dependencies>
     <!-- Core dependencies -->
-    
-
-    <!-- Provided dependencies -->
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
-      <scope>provided</scope>
     </dependency>
-    
-
-    <!-- Test dependencies -->
     <dependency>
       <groupId>log4j</groupId>
       <artifactId>log4j</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.mockito</groupId>
-      <artifactId>mockito-core</artifactId>
-      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-log4j12</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>5.1.39</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-dbcp</groupId>
+      <artifactId>commons-dbcp</artifactId>
+      <version>1.4</version>
+    </dependency>
+
+    <!-- Provided dependencies -->
+
+
+    <!-- Test dependencies -->
+
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-core</artifactId>
       <scope>test</scope>
     </dependency>
   </dependencies>
@@ -56,6 +63,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
+        <version>2.6</version>
         <executions>
           <execution>
             <id>test-jar-on-test-compile</id>

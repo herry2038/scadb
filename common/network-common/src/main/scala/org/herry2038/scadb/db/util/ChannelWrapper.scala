@@ -3,6 +3,7 @@ package org.herry2038.scadb.db.util
 
 import java.nio.charset.Charset
 import org.herry2038.scadb.db.exceptions.UnknownLengthException
+import org.herry2038.scadb.util.Log
 
 import scala.language.implicitConversions
 import io.netty.buffer.ByteBuf
