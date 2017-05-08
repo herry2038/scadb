@@ -24,6 +24,7 @@ http://pan.baidu.com/s/1dEHPKAX
 # 二、安装步骤
 1、启动MySQL，在mysql上创建scadb用户，如下所示：
 > mysql -uroot
+
 > mysql > grant all on *.* to scadb identified by 'scadb' ;
 
 2、安装好jdk1.8， 并设置好JAVA_HOME
@@ -39,14 +40,22 @@ scadb-tools_2.11-1.0.0-bin.tar.gz
 
 
 >  mkdir /opt/scadb
+
 > cd /opt/scadb
+
 > tar xzf /tmp/scadb_2.11-1.0.0-bin.tar.gz
+
 > tar xzf /tmp/scadb-admin_2.11-1.0.0-bin.tar.gz
+
 > tar xzf /tmp/scadb-tools_2.11-1.0.0-bin.tar.gz
 
+
 > ls -1
+
 > scadb_2.11-1.0.0
+
 > scadb-admin_2.11-1.0.0
+
 > scadb-tools_2.11-1.0.0
 
 
@@ -62,19 +71,20 @@ InitEnv工具有很多参数，每个参数都有缺省的值，对于一个测�
 6、启动scadb服务进程
 
 > nohup /opt/scadb/scadb-admin_2.11-1.0.0/bin/scadb admin &
+
 > nohup /opt/scadb/scadb_2.11-1.0.0/bin/scadb server &
 
 
 # 三、使用scadb的docker镜像
 
 1. 下载镜像
-> # docker pull herry2038/scadb
+> docker pull herry2038/scadb
 
 2. 运行镜像
-> # docker run -d --name scadb herry2038/scadb
+> docker run -d --name scadb herry2038/scadb
 
 3. 进入镜像
-> # sudo docker exec -t -i scadb /bin/bash
+> sudo docker exec -t -i scadb /bin/bash
 
 在镜像中开始使用scadb，见第4节：使用scadb
 
@@ -84,7 +94,7 @@ InitEnv工具有很多参数，每个参数都有缺省的值，对于一个测�
 1、 连接到scadb
 
 scadb的缺省端口号是9527
-> # mysql -utest -ptest -h127.0.0.1 -P9527
+> mysql -utest -ptest -h127.0.0.1 -P9527
 
 
 2、 创建表
@@ -107,18 +117,28 @@ COLLATE='utf8_bin' ENGINE=InnoDB ;
 3、 查看系统中的表
 
 > show tables ;
-show create table a ;
+
+>show create table a ;
 
 4、 插入数据
 > insert into a ( id,name ) values ( 1,'123') ;
+
 > insert into a ( id,name ) values ( 2,'123') ;
+
 > insert into a ( id,name ) values ( 3,'123') ;
+
 > insert into a ( id,name ) values ( 4,'123') ;
+
 > insert into a ( id,name ) values ( 5,'123') ;
+
 > insert into a ( id,name ) values ( 6,'123') ;
+
 > insert into a ( id,name ) values ( 7,'123') ;
+
 > insert into a ( id,name ) values ( 8,'123') ;
+
 > insert into a ( id,name ) values ( 9,'123') ;
+
 > insert into a ( id,name ) values ( 10,'123') ;
 
 5、 查询数据
