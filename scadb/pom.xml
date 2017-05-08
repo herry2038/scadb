@@ -86,41 +86,12 @@
   <build>
     <outputDirectory>target/scala-${scala.binary.version}/classes</outputDirectory>
     <testOutputDirectory>target/scala-${scala.binary.version}/test-classes</testOutputDirectory>
-    <!--
-    <resources>
-      <resource>
-        <directory>src/main/resources</directory>
-        <excludes>
-          <exclude>**/.git/**</exclude>
-          <exclude>**</exclude>
-        </excludes>
-        <filtering>false</filtering>
-      </resource>
-    </resources>
-    -->
     <plugins>
       <!-- Create a test-jar so network-shuffle can depend on our test utilities. -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-assembly-plugin</artifactId>
-        <version>2.2.1</version>
-        <configuration>
-          <descriptors>
-            <descriptor>../assembly/assembly.xml</descriptor>
-          </descriptors>
-        </configuration>
-        <executions>
-          <execution>
-            <id>make-assembly</id>
-            <phase>package</phase>
-            <goals>
-              <goal>single</goal>
-            </goals>
-          </execution>
-        </executions>
-        <!--
         <artifactId>maven-jar-plugin</artifactId>
-
+        <version>2.6</version>
         <executions>
           <execution>
             <id>test-jar-on-test-compile</id>
@@ -130,7 +101,6 @@
             </goals>
           </execution>
         </executions>
-        -->
       </plugin>
     </plugins>
   </build>
