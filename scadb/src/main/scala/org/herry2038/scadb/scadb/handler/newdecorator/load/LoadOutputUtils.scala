@@ -26,9 +26,6 @@ import org.herry2038.scadb.conf.algorithm.Algorithm
 
 import scala.collection.mutable.ArrayBuffer
 
-/**
- * Created by Administrator on 2016/11/17.
- */
 class LoadOutputUtils(val algorithm: Algorithm, val dir: String, val table: String) {
   private val outputs = {
     val allOutputs = ArrayBuffer[LoadOutputStream]()

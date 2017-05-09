@@ -8,9 +8,7 @@ import org.herry2038.scadb.util.Log
 
 import scala.util.{Failure, Success}
 import org.herry2038.scadb.db.util.ExecutorServiceUtils.CachedExecutionContext
-/**
- * Created by Administrator on 2016/3/7.
- */
+
 class ScadbStatementExplain(handler: MySQLServerConnectionHandler,statement: ScadbStatement) extends ScadbStatement(handler, 0, -1) {
   val log = Log.get[ScadbStatementExplain]
   override def execute(): Int = {

@@ -25,9 +25,6 @@ package org.herry2038.scadb.conf.utils
 import org.apache.zookeeper.KeeperException.NoNodeException
 import org.herry2038.scadb.conf.ScadbConf
 
-/**
- * Created by Administrator on 2016/2/23.
- */
 object ZKUtils {
 
   def ensureDelete(path: String) = {

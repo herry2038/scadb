@@ -19,9 +19,7 @@ import org.herry2038.scadb.scadb.server.processor.{ScadbProcessor}
 import scala.collection.mutable.ArrayBuffer
 import scala.collection.JavaConversions._
 
-/**
- * Created by Administrator on 2016/3/22.
- */
+
 class DecoratorInterfaceSys(sql: String,statement: SQLStatement) extends DecoratorInterface(statement, 0) {
   override def readable(): Boolean = ???
 

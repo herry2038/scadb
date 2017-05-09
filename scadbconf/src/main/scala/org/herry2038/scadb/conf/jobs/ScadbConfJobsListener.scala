@@ -30,9 +30,7 @@ import org.herry2038.scadb.conf.ScadbConf
 import org.herry2038.scadb.conf.business.ScadbConfBusiness
 import org.herry2038.scadb.util.Log
 
-/**
- * Created by Administrator on 2016/3/21.
- */
+
 object ScadbConfJobsListener {
   class ScadbConfJobTaskListener(val listener: JobsListener ) extends PathChildrenCacheListener {
     val log = Log.get[ScadbConfJobTaskListener]

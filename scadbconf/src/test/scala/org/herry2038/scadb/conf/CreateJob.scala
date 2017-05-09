@@ -24,9 +24,6 @@ package org.herry2038.scadb.conf
 
 import org.herry2038.scadb.conf.utils.ZKUtils
 
-/**
- * Created by Administrator on 2016/3/11.
- */
 object CreateJob {
   def main(args: Array[String]) {
     ScadbConf.start("herrypc:2181")

@@ -40,9 +40,7 @@ import scala.collection.mutable
 import scala.util.{Failure, Success}
 import ConnectionHelper._
 import scala.collection.JavaConversions._
-/**
- * Created by Administrator on 2016/9/2.
- */
+
 object AdminMaster {
   class AdminMaster
   val log = Log.get[AdminMaster]

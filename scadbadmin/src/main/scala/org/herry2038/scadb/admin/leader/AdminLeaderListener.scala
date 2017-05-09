@@ -29,9 +29,6 @@ import org.apache.curator.framework.state.ConnectionState
 import org.herry2038.scadb.admin.server.AdminConf
 import org.herry2038.scadb.util.Log
 
-/**
- * Created by Administrator on 2016/9/2.
- */
 class AdminLeaderListener extends LeaderSelectorListener {
   private val log = Log.get[AdminLeaderListener]
   private var leaderLatch: CountDownLatch = null

@@ -39,9 +39,7 @@ import org.herry2038.scadb.util.Log
 import scala.collection.JavaConversions._
 import scala.collection.mutable.{ArrayBuffer, HashMap}
 
-/**
- * Created by Administrator on 2016/3/15.
- */
+
 class DecoratorInterfaceSelectInto(statement: SQLStatement, startTime: Long) extends DecoratorInterface(statement, startTime) {
   val log = Log.get[DecoratorInterfaceSelectInto]
   val readable = true

@@ -28,9 +28,6 @@ import com.alibaba.druid.sql.ast.statement.SQLSetStatement
 import org.herry2038.scadb.admin.server.{AdminException, AdminCommandProcessor, AdminConf}
 import org.herry2038.scadb.mysql.server.MySQLServerConnectionHandler
 
-/**
- * Created by Administrator on 2016/9/1.
- */
 class AdminHandlerSet(statement: SQLStatement, handler: MySQLServerConnectionHandler) extends AdminHandlerInterface(statement, handler) {
   val stmt = statement.asInstanceOf[SQLSetStatement]
 

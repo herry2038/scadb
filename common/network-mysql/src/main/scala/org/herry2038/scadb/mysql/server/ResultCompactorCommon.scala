@@ -33,9 +33,6 @@ import io.netty.util.CharsetUtil
 
 import scala.collection.mutable.ArrayBuffer
 
-/**
- * Created by Administrator on 2016/8/26.
- */
 class ResultCompactorCommon extends ResultCompactor {
   override def compact(rs: ArrayBuffer[QueryResult], out: util.List[Object]): Unit = {
     var isResultSet = false

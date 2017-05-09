@@ -22,9 +22,6 @@
 //=========================================================================\\
 package org.herry2038.scadb.admin
 
-/**
- * Created by Administrator on 2016/3/10.
- */
 class JobHandlerException(val msg: String) extends Exception {
   def this(m: String, values: Any*) = this(String.format(m,values))
 

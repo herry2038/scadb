@@ -33,9 +33,6 @@ import org.herry2038.scadb.admin.server.AdminConf
 import org.herry2038.scadb.conf.ScadbConf
 import org.herry2038.scadb.util.Log
 
-/**
- * Created by Administrator on 2016/3/9.
- */
 object JobsListeners {
   val log = Log.get[JobListener]
   class JobListener(val jobWorker: JobWorker) extends PathChildrenCacheListener {

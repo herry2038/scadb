@@ -27,9 +27,7 @@ import org.herry2038.scadb.mysql.server.MySQLServerConnectionHandler
 import org.herry2038.scadb.scadb.conf.ScadbConfig
 import org.herry2038.scadb.scadb.handler.executor.{ScadbStatementSingle, ScadbStatement}
 
-/**
- * Created by Administrator on 2016/3/22.
- */
+
 class DecoratorInterfaceDefaultPool(sql: String,statement: SQLStatement,startTime: Long) extends DecoratorInterface(statement, startTime) {
   override def readable(): Boolean = true
 

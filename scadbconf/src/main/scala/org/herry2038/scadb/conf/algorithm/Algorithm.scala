@@ -29,9 +29,6 @@ import ScadbConf.Rule
 import org.herry2038.scadb.conf.ScadbConf.Rule
 
 
-/**
- * Created by Administrator on 2016/2/22.
- */
 trait Algorithm {
 
 

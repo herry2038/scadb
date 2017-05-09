@@ -25,9 +25,7 @@ package org.herry2038.scadb.admin.server.handler
 import com.alibaba.druid.sql.ast.SQLStatement
 import org.herry2038.scadb.mysql.server.MySQLServerConnectionHandler
 
-/**
- * Created by Administrator on 2016/9/1.
- */
+
 abstract class AdminHandlerInterface(val statement: SQLStatement, val handler: MySQLServerConnectionHandler) {
   def handle() : Unit
 }

@@ -30,9 +30,6 @@ import org.herry2038.scadb.db.util.ByteBufferUtils
 import io.netty.buffer.ByteBuf
 import org.herry2038.scadb.mysql.message.server.{ServerMessage, LoadLocalMsg}
 
-/**
- * Created by Administrator on 2016/12/6.
- */
 class LoadLocalMsgDecoder(charset: Charset) extends MessageDecoder {
   def decode(buffer: ByteBuf): LoadLocalMsg = {
     new LoadLocalMsg(ByteBufferUtils.readUntilEOF(buffer, charset))

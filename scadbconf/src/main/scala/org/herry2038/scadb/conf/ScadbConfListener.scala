@@ -26,9 +26,7 @@ import java.util
 
 import ScadbConf.{User, Business, Rule, Table}
 
-/**
- * Created by Administrator on 2016/2/24.
- */
+
 trait ScadbConfListener {
   def uptWhitelist(business: String, whiteLists: util.List[String]): Unit
 

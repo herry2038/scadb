@@ -22,9 +22,6 @@
 //=========================================================================\\
 package org.herry2038.scadb.conf
 
-/**
- * Created by Administrator on 2016/2/23.
- */
 object Timer {
 
   // this function takes another function as an argument.

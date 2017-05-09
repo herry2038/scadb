@@ -24,9 +24,6 @@ package test
 
 import scala.util.Try
 
-/**
- * Created by Administrator on 2017/3/31.
- */
 object TestTry {
   def main(args: Array[String]) {
     Try(throw new Exception("abc"))

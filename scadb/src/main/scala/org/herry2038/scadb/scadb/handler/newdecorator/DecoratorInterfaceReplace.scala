@@ -30,9 +30,7 @@ import org.herry2038.scadb.scadb.conf.ScadbConfig
 import org.herry2038.scadb.scadb.handler.executor.{ScadbStatement, ScadbStatementSingle}
 import org.herry2038.scadb.scadb.server.processor.Statistics
 
-/**
- * Created by Administrator on 2016/3/16.
- */
+
 class DecoratorInterfaceReplace(statement: SQLStatement, startTime: Long) extends DecoratorInterface(statement, startTime) {
   val readable = false
   val stmt = statement.asInstanceOf[MySqlReplaceStatement]

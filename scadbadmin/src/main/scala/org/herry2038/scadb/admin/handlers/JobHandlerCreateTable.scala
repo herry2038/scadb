@@ -36,9 +36,6 @@ import java.util
 
 
 
-/**
- * Created by Administrator on 2016/3/10.
- */
 class JobHandlerCreateTable(business: String, statement: SQLStatement, hints: mutable.HashMap[String,String]) extends JobHandler(business, statement, hints) {
   val stmt = statement.asInstanceOf[SQLCreateTableStatement]
   val tableName = {

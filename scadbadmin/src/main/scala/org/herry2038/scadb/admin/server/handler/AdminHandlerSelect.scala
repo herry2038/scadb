@@ -35,9 +35,6 @@ import org.herry2038.scadb.mysql.server.MySQLServerConnectionHandler
 import org.herry2038.scadb.util.DbUtils
 import scala.collection.JavaConversions._
 
-/**
- * Created by Administrator on 2016/9/1.
- */
 class AdminHandlerSelect(statement: SQLStatement, handler: MySQLServerConnectionHandler) extends AdminHandlerInterface(statement, handler) {
 
   val stmt = statement.asInstanceOf[SQLSelectStatement]

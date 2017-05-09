@@ -22,9 +22,6 @@
 //=========================================================================\\
 package org.herry2038.scadb.admin.server
 
-/**
- * Created by Administrator on 2016/9/1.
- */
 class AdminException(msg: String) extends Exception {
   override def getMessage = msg
 }

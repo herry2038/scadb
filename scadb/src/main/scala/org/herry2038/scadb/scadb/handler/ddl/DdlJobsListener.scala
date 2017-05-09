@@ -33,9 +33,6 @@ import scala.concurrent.Promise
 import scala.collection.mutable
 import scala.util.Try
 
-/**
- * Created by Administrator on 2016/3/21.
- */
 object DdlJobsListener extends JobResultsListener with Logging{
   class DdlJob(val startTime: Date, val promise: Promise[JobResult])
 

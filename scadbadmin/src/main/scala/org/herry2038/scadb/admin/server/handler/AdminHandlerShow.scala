@@ -26,9 +26,6 @@ import com.alibaba.druid.sql.ast.SQLStatement
 import com.alibaba.druid.sql.dialect.mysql.ast.statement.MySqlShowStatement
 import org.herry2038.scadb.mysql.server.MySQLServerConnectionHandler
 
-/**
- * Created by Administrator on 2016/9/1.
- */
 class AdminHandlerShow(statement: SQLStatement, handler: MySQLServerConnectionHandler) extends AdminHandlerInterface(statement, handler) {
   val stmt = statement.asInstanceOf[MySqlShowStatement]
   override def handle(): Unit = {

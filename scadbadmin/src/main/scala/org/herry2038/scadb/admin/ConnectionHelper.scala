@@ -22,11 +22,7 @@
 //=========================================================================\\
 package org.herry2038.scadb.admin
 
-/**
- * Created by Administrator on 2016/3/10.
- */
-
-import java.util.concurrent.{CountDownLatch, ConcurrentHashMap}
+import java.util.concurrent.{ConcurrentHashMap}
 
 import org.apache.commons.dbcp.BasicDataSource
 import org.herry2038.scadb.conf.ScadbConf

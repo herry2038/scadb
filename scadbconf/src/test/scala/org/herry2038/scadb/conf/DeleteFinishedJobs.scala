@@ -23,9 +23,7 @@
 package org.herry2038.scadb.conf
 
 import scala.collection.JavaConversions._
-/**
- * Created by Administrator on 2016/12/26.
- */
+
 object DeleteFinishedJobs {
   def main(args: Array[String]) {
     ScadbConf.start("herrypc:2181")

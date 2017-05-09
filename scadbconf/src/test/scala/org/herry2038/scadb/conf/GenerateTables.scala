@@ -22,9 +22,6 @@
 //=========================================================================\\
 package org.herry2038.scadb.conf
 
-/**
- * Created by Administrator on 2016/3/24.
- */
 object GenerateTables {
   def main(args: Array[String]) {
     0 until 100 foreach (i=>

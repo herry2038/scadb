@@ -30,9 +30,6 @@ import org.herry2038.scadb.admin.handlers.{JobHandlerCreateTable, JobHandlerAlte
 import org.herry2038.scadb.admin.server.AdminConf
 import scala.collection.mutable
 
-/**
- * Created by Administrator on 2016/3/10.
- */
 object JobProcessor {
   val hintsPrefix = "/*!scadb:"
 

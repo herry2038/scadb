@@ -24,9 +24,6 @@ package org.herry2038.scadb.conf.jobs
 
 import JobsModel.JobInfo
 
-/**
- * Created by Administrator on 2016/3/21.
- */
 trait JobsListener {
   def newJob(jobId: String, jobInfo: JobInfo): Unit
   def deleteJob(jobId: String): Unit

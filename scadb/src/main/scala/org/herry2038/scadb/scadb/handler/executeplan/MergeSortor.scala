@@ -2,9 +2,6 @@ package org.herry2038.scadb.scadb.handler.executeplan
 
 import scala.collection.mutable.ArrayBuffer
 
-/**
- * Created by Administrator on 2016/8/26.
- */
 object MergeSorter {
 
   trait Compare[A] {

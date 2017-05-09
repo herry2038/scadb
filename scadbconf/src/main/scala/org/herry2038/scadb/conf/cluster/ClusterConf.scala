@@ -32,9 +32,6 @@ import org.herry2038.scadb.util.Log
 import scala.collection.concurrent.RDCSS_Descriptor
 import scala.collection.mutable
 
-/**
- * Created by Administrator on 2016/2/26.
- */
 class ClusterConf(val business: String, val cluster: String) {
   val log = Log.get[ClusterConf]
 

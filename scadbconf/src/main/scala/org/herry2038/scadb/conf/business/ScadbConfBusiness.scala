@@ -36,9 +36,6 @@ import org.herry2038.scadb.util.Log
 
 import scala.collection.mutable
 
-/**
- * Created by Administrator on 2016/2/22.
- */
 class ScadbConfBusiness(val business: String) {
   val log = Log.get[ScadbConfBusiness]
   var defaultMySQL: String = null

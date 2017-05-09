@@ -35,9 +35,6 @@ import org.herry2038.scadb.scadb.server.processor.{ScadbUuid, Statistics}
 import scala.collection.mutable.ArrayBuffer
 import scala.collection.JavaConversions._
 
-/**
- * Created by Administrator on 2016/3/16.
- */
 class DecoratorInterfaceInsert(statement: SQLStatement, startTime: Long) extends DecoratorInterface(statement, startTime) {
   val readable = false
   val stmt = statement.asInstanceOf[SQLInsertStatement]

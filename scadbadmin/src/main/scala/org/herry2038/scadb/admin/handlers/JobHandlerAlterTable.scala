@@ -29,9 +29,6 @@ import org.herry2038.scadb.admin.JobHandler
 
 import scala.collection.mutable
 
-/**
- * Created by Administrator on 2016/3/17.
- */
 class JobHandlerAlterTable(business: String, statement: SQLStatement, hints: mutable.HashMap[String,String]) extends JobHandler(business, statement, hints) {
   val stmt = statement.asInstanceOf[SQLAlterTableStatement]
   override def tableName: String = stmt.getTableSource.getExpr.asInstanceOf[SQLIdentifierExpr].getName()

@@ -25,9 +25,6 @@ package org.herry2038.scadb.conf.jobs
 import ScadbConfJobsListener.{ScadbConfJobResultListener, ScadbConfJobTaskListener}
 import org.herry2038.scadb.conf.ScadbConf
 
-/**
- * Created by Administrator on 2016/3/21.
- */
 object JobsManager {
   def startJobsListener(listener: JobsListener) = ScadbConf.pathCache(s"${ScadbConf.basePath}/jobs", new ScadbConfJobTaskListener(listener))
 

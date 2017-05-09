@@ -24,9 +24,6 @@ package org.herry2038.scadb.admin.model
 
 import org.herry2038.scadb.conf.ScadbConf.{Table, Rule, Business}
 
-/**
- * Created by Administrator on 2016/3/9.
- */
 class BusinessWrapper(val name: String, busi: Business) {
   def this(name: String) = this(name, null)
   var busiData: Business = busi

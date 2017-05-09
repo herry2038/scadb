@@ -27,9 +27,6 @@ import org.apache.curator.framework.recipes.cache.{PathChildrenCacheEvent, PathC
 import org.apache.curator.utils.ZKPaths
 import org.herry2038.scadb.util.Log
 
-/**
- * Created by Administrator on 2016/2/22.
- */
 class ScadbConfBusinessesListener(manager: ScadbConfManager) extends PathChildrenCacheListener{
   val log = Log.get[ScadbConfBusinessesListener]
   override def childEvent(client: CuratorFramework, event: PathChildrenCacheEvent): Unit = {

@@ -31,9 +31,6 @@ import org.herry2038.scadb.util.Log
 
 import scala.collection.mutable
 
-/**
- * Created by Administrator on 2016/3/9.
- */
 class JobWorker(val business: String, val manager: JobsManager) extends Thread("JobWorker-" + business) {
   val log = Log.get[JobWorker]
   private val lock = new ReentrantLock()

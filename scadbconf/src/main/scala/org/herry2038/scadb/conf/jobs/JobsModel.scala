@@ -22,9 +22,6 @@
 //=========================================================================\\
 package org.herry2038.scadb.conf.jobs
 
-/**
- * Created by Administrator on 2016/3/21.
- */
 object JobsModel {
   class JobResult(val code: Int, val msg: String, val business: String, val sql: String)
   class JobInfo (val business: String, val sql: String)

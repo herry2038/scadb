@@ -26,10 +26,6 @@ import java.util.concurrent.atomic.AtomicLong
 
 import org.herry2038.scadb.util.Log
 
-/**
- * Created by Administrator on 2017/3/29.
- */
-
 class Statistics {
 
   val opts: Array[Array[AtomicLong]] = Array(

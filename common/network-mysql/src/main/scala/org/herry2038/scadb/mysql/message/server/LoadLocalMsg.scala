@@ -22,7 +22,4 @@
 //=========================================================================\\
 package org.herry2038.scadb.mysql.message.server
 
-/**
- * Created by Administrator on 2016/12/6.
- */
 class LoadLocalMsg(val file: String) extends ServerMessage( ServerMessage.LoadLocal )

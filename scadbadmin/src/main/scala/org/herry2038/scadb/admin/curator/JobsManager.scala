@@ -27,9 +27,6 @@ import org.herry2038.scadb.util.Log
 
 import scala.collection.mutable
 
-/**
- * Created by Administrator on 2016/3/9.
- */
 class JobsManager  {
   val log = Log.get[JobsManager]
 

@@ -32,9 +32,6 @@ import org.herry2038.scadb.conf.ScadbConf
 
 import scala.collection.mutable
 
-/**
- * Created by Administrator on 2016/3/17.
- */
 class JobHandlerDropTable(business: String, statement: SQLStatement, hints: mutable.HashMap[String,String]) extends JobHandler(business, statement, hints) {
   val stmt = statement.asInstanceOf[SQLDropTableStatement]
   override def tableName: String = stmt.getTableSources.get(0).getExpr.asInstanceOf[SQLIdentifierExpr].getName

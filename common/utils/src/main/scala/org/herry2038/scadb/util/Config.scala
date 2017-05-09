@@ -28,9 +28,6 @@ import java.util.concurrent.ConcurrentHashMap
 import scala.util.Try
 import scala.collection.JavaConversions._
 
-/**
- * Created by Administrator on 2016/5/3.
- */
 class Config extends Logging {
   val configs = new ConcurrentHashMap[String, String]()
   def loadConfig(fileName: String): Unit = {

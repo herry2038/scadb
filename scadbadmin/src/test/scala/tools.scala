@@ -34,9 +34,6 @@ import org.herry2038.scadb.conf.algorithm.Algorithm
 
 import scala.util.{Failure, Success}
 
-/**
- * Created by Administrator on 2016/11/29.
- */
 object tools {
   def getAlgorithm(r: Rule): Algorithm = {
     val className = "org.herry2038.scadb.conf.algorithm." + r.algorithm

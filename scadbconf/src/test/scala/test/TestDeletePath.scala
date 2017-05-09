@@ -25,9 +25,6 @@ package test
 import org.herry2038.scadb.conf.ScadbConf
 import org.herry2038.scadb.conf.utils.ZKUtils
 
-/**
- * Created by Administrator on 2017/3/31.
- */
 object TestDeletePath {
   def main(args: Array[String]) {
     ScadbConf.start("herrypc:2181")

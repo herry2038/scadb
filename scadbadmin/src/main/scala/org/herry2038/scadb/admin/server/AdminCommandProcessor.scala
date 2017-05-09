@@ -31,9 +31,6 @@ import org.herry2038.scadb.mysql.message.server.{OkMessage, ErrorMessage}
 import org.herry2038.scadb.mysql.server.MySQLServerConnectionHandler
 import org.herry2038.scadb.util.Logging
 
-/**
- * Created by Administrator on 2016/9/1.
- */
 class AdminCommandProcessor extends Logging {
   import AdminCommandProcessor._
   def handle(sql: String, handler: MySQLServerConnectionHandler): Unit = {

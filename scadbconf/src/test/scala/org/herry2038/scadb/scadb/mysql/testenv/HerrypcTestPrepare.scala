@@ -25,9 +25,6 @@ package org.herry2038.scadb.scadb.mysql.testenv
 import org.herry2038.scadb.conf.ScadbConf
 import org.herry2038.scadb.conf.utils.ZKUtils
 
-/**
- * Created by Administrator on 2016/3/23.
- */
 object HerrypcTestPrepare {
   def main(args: Array[String]) {
     ScadbConf.start("herrypc:2181")

@@ -38,9 +38,7 @@ import org.herry2038.scadb.util.Log
 import scala.collection.mutable.HashMap
 import scala.collection.JavaConversions._
 
-/**
- * Created by Administrator on 2016/3/15.
- */
+
 abstract class DecoratorInterface(val statement: SQLStatement, val startTime: Long) {
   def readable(): Boolean
   def tableName(): String

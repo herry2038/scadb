@@ -24,9 +24,6 @@ package org.herry2038.scadb.scadb.handler.executor
 
 import org.herry2038.scadb.mysql.server.MySQLServerConnectionHandler
 
-/**
- * Created by Administrator on 2016/3/15.
- */
 class ScadbStatementSystem(handler: MySQLServerConnectionHandler, metas: String, datas: String ) extends ScadbStatement(handler, 0 , -1) {
   override def execute(): Int = {
     handler.write((metas, datas))

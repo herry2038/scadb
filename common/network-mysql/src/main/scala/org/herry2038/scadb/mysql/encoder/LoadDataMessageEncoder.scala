@@ -26,9 +26,7 @@ import org.herry2038.scadb.mysql.message.client.{LoadLocalDataMessage, ClientMes
 import org.herry2038.scadb.db.util.ByteBufferUtils
 import io.netty.buffer.ByteBuf
 
-/**
- * Created by Administrator on 2016/12/6.
- */
+
 object LoadDataMessageEncoder extends MessageEncoder{
   def encode(message: ClientMessage): ByteBuf = {
     val m = message.asInstanceOf[LoadLocalDataMessage]

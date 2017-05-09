@@ -22,7 +22,4 @@
 //=========================================================================\\
 package org.herry2038.scadb.scadb.handler.exceptions
 
-/**
- * Created by Administrator on 2015/12/2.
- */
 class ExecuteException(message: String) extends Exception(message)

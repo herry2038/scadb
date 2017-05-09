@@ -22,7 +22,4 @@
 //=========================================================================\\
 package org.herry2038.scadb.mysql.message.client
 
-/**
- * Created by Administrator on 2016/12/6.
- */
 class LoadLocalDataMessage(val byte: Array[Byte], val size: Int) extends ClientMessage(ClientMessage.LoadData)

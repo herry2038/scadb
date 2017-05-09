@@ -40,9 +40,6 @@ import scala.collection.mutable.ArrayBuffer
 import scala.collection.JavaConversions._
 
 
-/**
- * Created by Administrator on 2016/8/23.
- */
 class ResultCompactorEP extends ResultCompactor {
   import ResultCompactorEP.FieldExecutorType._
   val fieldExecutorTypes = new util.ArrayList[FieldExecutorType]

@@ -28,9 +28,6 @@ import org.herry2038.scadb.conf.ScadbConf
 import org.herry2038.scadb.conf.utils.ZKUtils
 import org.herry2038.scadb.util.{DbUtils, Config}
 
-/**
- * Created by Administrator on 2016/3/23.
- */
 object InitEnv {
   object Args {
     var basePath = ScadbConf.basePath

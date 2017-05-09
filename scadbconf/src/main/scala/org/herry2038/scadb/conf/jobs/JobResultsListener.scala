@@ -25,9 +25,7 @@ package org.herry2038.scadb.conf.jobs
 import JobsModel.JobResult
 import org.herry2038.scadb.conf.jobs.JobsModel.JobResult
 
-/**
- * Created by Administrator on 2016/3/21.
- */
+
 trait JobResultsListener {
   def deleteFinishedJob(jobId: String): Unit
 

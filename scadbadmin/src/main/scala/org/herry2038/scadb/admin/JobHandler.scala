@@ -22,9 +22,8 @@
 //=========================================================================\\
 package org.herry2038.scadb.admin
 
-import java.sql.SQLException
 import java.util
-import java.util.concurrent.{TimeUnit, Executors, CountDownLatch}
+import java.util.concurrent.{TimeUnit, Executors}
 
 import com.alibaba.druid.sql.ast.SQLStatement
 import org.apache.commons.dbcp.BasicDataSource
@@ -41,9 +40,6 @@ import org.herry2038.scadb.util.{DbUtils, Log}
 import scala.collection.mutable
 import scala.collection.JavaConversions._
 
-/**
- * Created by Administrator on 2016/3/10.
- */
 
 object JobHandler {
   val log = Log.get[JobHandler]

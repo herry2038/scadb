@@ -28,10 +28,6 @@ import ClusterModel._
 import org.apache.curator.utils.ZKPaths
 import org.herry2038.scadb.util.Log
 
-/**
- * Created by Administrator on 2016/2/26.
- */
-
 trait ClusterConfListener {
   def delInstance(proxy: String, instance: String): Unit
 

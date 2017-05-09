@@ -33,9 +33,7 @@ import org.herry2038.scadb.scadb.handler.executeplan.ExecutePlan
 import org.herry2038.scadb.scadb.handler.executor.{ScadbStatementSystem, ScadbStatement}
 import org.herry2038.scadb.scadb.server.processor.Statistics
 import scala.collection.JavaConversions._
-/**
- * Created by Administrator on 2016/3/15.
- */
+
 class DecoratorInterfaceQuery(statement: SQLStatement, startTime: Long) extends DecoratorInterface(statement, startTime) {
   val readable = true
   override val requestType = Statistics.SELECT_TYPE

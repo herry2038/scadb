@@ -22,7 +22,4 @@
 //=========================================================================\\
 package org.herry2038.scadb.admin.model
 
-/**
- * Created by Administrator on 2016/3/10.
- */
 class JobInfo (val business: String, val sql: String)

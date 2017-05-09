@@ -29,9 +29,6 @@ import org.apache.commons.dbcp.BasicDataSource
 
 import scala.util.Try
 
-/**
- * Created by Administrator on 2017/5/7.
- */
 object DbUtils {
   def createPool(mysql: String, user: String, pass: String, db: Option[String] = None, poolSize: Int = 20): BasicDataSource = {
     val bds = new BasicDataSource

@@ -35,9 +35,6 @@ import org.herry2038.scadb.scadb.conf.ScadbConfig
 import org.herry2038.scadb.scadb.handler.executor.{ScadbStatement, ScadbStatementParallelMulti}
 import scala.collection.JavaConversions._
 
-/**
- * Created by Administrator on 2016/8/23.
- */
 class ExecutePlan(val statement: SQLSelectStatement, val tableName: String,
                   val startTime: Long, val requestType: Int,
                   val rule: Algorithm, val handler: MySQLServerConnectionHandler) {

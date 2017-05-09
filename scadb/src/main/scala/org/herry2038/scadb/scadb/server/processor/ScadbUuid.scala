@@ -33,9 +33,6 @@ import scala.collection.JavaConversions._
 
 import scala.util.Try
 
-/**
- * Created by Administrator on 2017/3/30.
- */
 object ScadbUuid extends Logging {
   private val random = new SecureRandom()
   val NEXT_COUNTER = new AtomicInteger(random.nextInt())

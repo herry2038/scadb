@@ -26,9 +26,6 @@ import org.herry2038.scadb.mysql.message.server.{EOFMessage, ColumnDefinitionMes
 
 import scala.collection.mutable.ArrayBuffer
 
-/**
- * Created by Administrator on 2016/11/14.
- */
 trait MessageTrack {
   def onColumns(columns: ArrayBuffer[ColumnDefinitionMessage]): Unit
   def onRow(rows: Array[Any]): Unit

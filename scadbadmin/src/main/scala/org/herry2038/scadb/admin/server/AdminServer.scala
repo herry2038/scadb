@@ -31,9 +31,6 @@ import org.herry2038.scadb.mysql.server.{MySQLServerHandlerDelegate, MySQLServer
 import org.herry2038.scadb.util.Logging
 
 
-/**
- * Created by Administrator on 2016/3/8.
- */
 object AdminServer extends Logging {
   def main(args: Array[String]) {
     AdminConf.load

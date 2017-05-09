@@ -24,9 +24,6 @@ package org.herry2038.scadb.conf
 
 import org.herry2038.scadb.conf.ScadbConf.Business
 
-/**
- * Created by Administrator on 2016/3/8.
- */
 trait ScadbConfManagerListener {
   def updateBusiness(business: String, busiData: Business): Unit
 

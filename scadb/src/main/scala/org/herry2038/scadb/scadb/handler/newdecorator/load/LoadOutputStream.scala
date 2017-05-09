@@ -27,9 +27,7 @@ import java.io.{File, OutputStream}
 import org.apache.commons.io.FileUtils
 import org.herry2038.scadb.scadb.handler.newdecorator.DecoratorInterface
 
-/**
- * Created by Administrator on 2016/11/17.
- */
+
 class LoadOutputStream(val filePrefix: String) {
   private var sequence = 1
   private var currentSize = 0

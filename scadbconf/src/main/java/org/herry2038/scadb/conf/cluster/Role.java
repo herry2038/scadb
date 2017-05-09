@@ -22,9 +22,6 @@
 //=========================================================================\\
 package org.herry2038.scadb.conf.cluster;
 
-/**
- * Created by Administrator on 2017/5/4.
- */
 public enum Role {
     CANDIDATE,
     SLAVE

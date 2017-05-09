@@ -29,9 +29,7 @@ import org.apache.commons.io.IOUtils
 import org.herry2038.scadb.scadb.handler.exceptions.ExecuteException
 import org.herry2038.scadb.util.Log
 
-/**
- * Created by Administrator on 2016/12/2.
- */
+
 object LoadUtils {
   class LoadUtilAnonymous
   val log = Log.get[LoadUtilAnonymous]

@@ -44,9 +44,7 @@ import scala.collection.JavaConversions._
 import scala.concurrent.duration.Duration
 import scala.util.{Failure, Success}
 import org.herry2038.scadb.db.util.ExecutorServiceUtils.CachedExecutionContext
-/**
- * Created by Administrator on 2016/11/16.
- */
+
 class DecoratorInterfaceLoad(sql: String, statements: java.util.List[SQLStatement], startTime: Long) extends DecoratorInterface(statements.get(statements.size-1), startTime) {
   import DecoratorInterface._
 

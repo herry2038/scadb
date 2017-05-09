@@ -26,9 +26,6 @@ import com.alibaba.druid.sql.ast.SQLStatement
 import org.herry2038.scadb.mysql.server.MySQLServerConnectionHandler
 import org.herry2038.scadb.scadb.handler.executor.{ScadbStatementDdl, ScadbStatement}
 
-/**
- * Created by Administrator on 2016/3/21.
- */
 class DecoratorInterfaceDdl(sql: String, statements: java.util.List[SQLStatement], startTime: Long) extends DecoratorInterface(statements.get(0), startTime) {
   override def readable(): Boolean = ???
 

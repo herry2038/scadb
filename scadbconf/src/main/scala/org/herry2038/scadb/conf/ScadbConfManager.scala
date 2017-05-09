@@ -31,9 +31,6 @@ import org.herry2038.scadb.util.Log
 import scala.collection.JavaConversions._
 import scala.collection.mutable
 
-/**
- * Created by Administrator on 2016/2/19.
- */
 class ScadbConfManager {
   val log = Log.get[ScadbConfManager]
   val businesses = mutable.HashMap[String, ScadbConfBusiness]()

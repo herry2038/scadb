@@ -35,9 +35,6 @@ import org.herry2038.scadb.util.Log
 
 import scala.concurrent.Promise
 
-/**
- * Created by Administrator on 2016/3/21.
- */
 class ScadbStatementDdl(handler: MySQLServerConnectionHandler,val sql:String) extends ScadbStatement(handler, 0, -1) {
   val log = Log.get[ScadbStatementDdl]
 

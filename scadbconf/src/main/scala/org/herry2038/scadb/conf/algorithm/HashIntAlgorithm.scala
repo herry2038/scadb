@@ -30,9 +30,7 @@ import org.herry2038.scadb.conf.ScadbConf.Rule
 
 import scala.collection.mutable
 
-/**
- * Created by Administrator on 2016/2/25.
- */
+
 class HashIntAlgorithm extends Algorithm {
   var partitionNum: Int = 0
   override def partition(value: String): (String,Int) = {
