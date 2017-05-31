@@ -34,6 +34,7 @@
     <module>scadbadmin</module>
     <module>scadbconf</module>
     <module>scadbtools</module>
+    <module>scadbsentinel</module>
   </modules>
 
   <properties>
