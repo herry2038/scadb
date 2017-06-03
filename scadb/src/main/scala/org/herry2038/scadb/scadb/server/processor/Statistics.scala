@@ -86,5 +86,5 @@ object Statistics {
     }catch {
       case _: Throwable =>
     }
-  }
+}
 }

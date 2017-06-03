@@ -22,22 +22,29 @@
 //=========================================================================\\
 package org.herry2038.scadb.conf.cluster
 
+import java.util.concurrent.ConcurrentHashMap
+
 import org.herry2038.scadb.conf.ScadbConf
-import org.herry2038.scadb.conf.cluster.ClusterModel.MySQLStatus
 import com.google.gson.Gson
 import org.apache.curator.framework.recipes.cache.PathChildrenCache
 import ClusterConfListener._
 import ClusterModel.MySQLStatus
+import org.herry2038.scadb.conf.common.SubObject
 import org.herry2038.scadb.util.Log
-import scala.collection.concurrent.RDCSS_Descriptor
 import scala.collection.mutable
 
-class ClusterConf(val business: String, val cluster: String) {
+class ClusterConf(val path: String, val cluster: String) extends SubObject {
   val log = Log.get[ClusterConf]
+  val business: String = {
+    val i = path.lastIndexOf('/')
+    if ( i < 0 ) null
+    else {
+      val j = path.lastIndexOf('/', i - 1 )
+      if ( j < 0 ) null else path.substring(j + 1, i)
+    }
+  }
+  var finalCluster = business + "." + cluster
 
-  val finalCluster = business + "." + cluster
-
-  lazy val path = ClusterConf.path(business, cluster)
   val dataCache = ScadbConf.dataCache(path, new InstanceConfDataListener(this))
   var pathCache: PathChildrenCache = null
 
@@ -87,7 +94,7 @@ class ClusterConf(val business: String, val cluster: String) {
     }
   }
 
-  def close(): Unit = {
+  override def close(): Unit = {
     ScadbConf.wrapperWithLock { () =>
       Option(pathCache).map(_.close())
       dataCache.close()
@@ -98,5 +105,5 @@ class ClusterConf(val business: String, val cluster: String) {
 }
 
 object ClusterConf {
-  def path(dbset: String, proxy: String) = ScadbConf.clustersPath + "/" + dbset + "/" + proxy
+  def path(business: String, cluster: String) = ScadbConf.clustersPath + "/" + business + "/" + cluster
 }

@@ -138,7 +138,7 @@ class ScadbConfig extends ScadbConfListener {
     this.busi.mysqls.map { mysql =>
       if ( !proxys.contains(mysql) ) {
         val setAndProxy = mysql.split("\\.")
-        val proxy = new ClusterConf(setAndProxy(0),setAndProxy(1))
+        val proxy = new ClusterConf(ClusterConf.path(setAndProxy(0), setAndProxy(1)),setAndProxy(1))
         proxy.registerListener(ScadbMySQLPools)
         proxys += (mysql -> proxy)
       }

@@ -29,13 +29,13 @@ import org.apache.curator.utils.ZKPaths
 import org.herry2038.scadb.util.Log
 
 trait ClusterConfListener {
-  def delInstance(proxy: String, instance: String): Unit
+  def delInstance(cluster: String, instance: String): Unit
 
-  def addInstance(proxy: String, instance: String, status: MySQLStatus): Unit
+  def addInstance(cluster: String, instance: String, status: MySQLStatus): Unit
 
-  def uptInstance(proxy: String, instance: String, status: MySQLStatus): Unit
+  def uptInstance(cluster: String, instance: String, status: MySQLStatus): Unit
 
-  def uptMasterModel(proxy: String, cluterModel: MasterModel): Unit
+  def uptMasterModel(cluster: String, cluterModel: MasterModel): Unit
 }
 
 

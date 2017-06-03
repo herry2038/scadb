@@ -21,30 +21,24 @@
 // under the License.
 //=========================================================================\\
 
-package org.herry2038.scadb.sentinel
+package org.herry2038.scadb.clusters
 
-import java.util.{TimerTask, Timer}
-import java.util.concurrent.{TimeUnit, Executors}
-
-object ScadbSentinel {
-
-  def main(args: Array[String]) {
-    SentinelConf.load
+import org.apache.curator.framework.recipes.cache.PathChildrenCache
+import org.herry2038.scadb.conf.ScadbConf
+import org.herry2038.scadb.conf.cluster.ClusterConf
+import org.herry2038.scadb.conf.common.{ScadbConfPathListenerWithSubPath, SubObject, Creator, PathObject}
+import org.herry2038.scadb.sentinel.{SentinelAutoswitchService, SentinelDetectorService}
 
 
-    val timerDetector = new Timer
-    timerDetector.schedule(new TimerTask {
-      override def run(): Unit = {
-        SentinelDetectorService.detector
-      }
-    }, SentinelConf.detectorInterval, SentinelConf.detectorInterval)
+class BusinessClusters(val path: String, val key: String) extends Creator[ClusterConf] with PathObject[ClusterConf] with SubObject {
+  val businessCache: PathChildrenCache = ScadbConf.pathCache(path, new ScadbConfPathListenerWithSubPath[ClusterConf, BusinessClusters](this))
 
-    new Timer().schedule(new TimerTask {
-      override def run(): Unit = {
+  def close: Unit = businessCache.close
 
-      }
-    }, SentinelConf.statisticsInterval, SentinelConf.statisticsInterval)
+  override def create(path: String, key: String): ClusterConf = {
+    val cc = super.create(path, key)
+    cc.registerListener(SentinelDetectorService)
+    cc.registerListener(SentinelAutoswitchService)
+    cc
   }
-
-
 }

@@ -21,30 +21,15 @@
 // under the License.
 //=========================================================================\\
 
-package org.herry2038.scadb.sentinel
+package org.herry2038.scadb.clusters
 
-import java.util.{TimerTask, Timer}
-import java.util.concurrent.{TimeUnit, Executors}
-
-object ScadbSentinel {
-
-  def main(args: Array[String]) {
-    SentinelConf.load
+import org.herry2038.scadb.conf.ScadbConf
+import org.herry2038.scadb.conf.common.{Creator, ScadbConfPathListenerWithSubPath, PathObject}
+import org.herry2038.scadb.util.Logging
 
 
-    val timerDetector = new Timer
-    timerDetector.schedule(new TimerTask {
-      override def run(): Unit = {
-        SentinelDetectorService.detector
-      }
-    }, SentinelConf.detectorInterval, SentinelConf.detectorInterval)
-
-    new Timer().schedule(new TimerTask {
-      override def run(): Unit = {
-
-      }
-    }, SentinelConf.statisticsInterval, SentinelConf.statisticsInterval)
-  }
-
+class Clusters extends Creator[BusinessClusters] with PathObject[BusinessClusters] with Logging {
+  val clusterCache = ScadbConf.pathCache(ScadbConf.clustersPath, new ScadbConfPathListenerWithSubPath[BusinessClusters, Clusters](this))
 
 }
+

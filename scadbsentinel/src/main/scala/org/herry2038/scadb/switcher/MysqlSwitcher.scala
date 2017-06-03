@@ -21,30 +21,12 @@
 // under the License.
 //=========================================================================\\
 
-package org.herry2038.scadb.sentinel
+package org.herry2038.scadb.switcher
 
-import java.util.{TimerTask, Timer}
-import java.util.concurrent.{TimeUnit, Executors}
-
-object ScadbSentinel {
-
-  def main(args: Array[String]) {
-    SentinelConf.load
+import org.herry2038.scadb.conf.cluster.ClusterModel.MySQLStatus
 
 
-    val timerDetector = new Timer
-    timerDetector.schedule(new TimerTask {
-      override def run(): Unit = {
-        SentinelDetectorService.detector
-      }
-    }, SentinelConf.detectorInterval, SentinelConf.detectorInterval)
-
-    new Timer().schedule(new TimerTask {
-      override def run(): Unit = {
-
-      }
-    }, SentinelConf.statisticsInterval, SentinelConf.statisticsInterval)
-  }
-
-
+trait MysqlSwitcher {
+  def isBetterThan(status: MySQLStatus, compareTo: MySQLStatus): Boolean
+  def switch(cluster: SentinelAutoSwitch, destination: String): Boolean
 }
