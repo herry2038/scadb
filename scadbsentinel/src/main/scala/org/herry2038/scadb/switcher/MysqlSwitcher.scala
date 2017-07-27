@@ -23,10 +23,10 @@
 
 package org.herry2038.scadb.switcher
 
-import org.herry2038.scadb.conf.cluster.ClusterModel.MySQLStatus
+import org.herry2038.scadb.conf.cluster.ClusterModel.{MasterModel, MySQLStatus}
 
 
 trait MysqlSwitcher {
-  def isBetterThan(status: MySQLStatus, compareTo: MySQLStatus): Boolean
-  def switch(cluster: SentinelAutoSwitch, destination: String): Boolean
+  def isBetterThan(host: String, status: MySQLStatus, hostCompareTo: String, compareTo: MySQLStatus): Boolean
+  def switch(cluster: SentinelAutoSwitch, destination: String): (Boolean, MasterModel)
 }

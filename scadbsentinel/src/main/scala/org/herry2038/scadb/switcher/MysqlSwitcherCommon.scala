@@ -31,26 +31,25 @@ import org.herry2038.scadb.util.Logging
 
 
 class MysqlSwitcherCommon extends MysqlSwitcher with Logging {
-  override def isBetterThan(status: MySQLStatus, compareTo: MySQLStatus): Boolean = {
+  override def isBetterThan(host: String, status: MySQLStatus, compareToHost: String, compareTo: MySQLStatus): Boolean = {
     if ( status.delaySeconds != -1 )
       if (compareTo.delaySeconds != -1 ) status.delaySeconds < compareTo.delaySeconds else true
     else
       false
   }
 
-  override def switch(cluster: SentinelAutoSwitch, destination: String): Boolean = {
+  override def switch(cluster: SentinelAutoSwitch, destination: String): (Boolean, MasterModel) = {
     val parts = cluster.cluster.split("\\.")
     val path = ClusterConf.path(parts(0), parts(1))
     val model = new MasterModel(destination, cluster.clusterModel.switchMode)
 
     try {
       ScadbConf.client.setData().forPath(path, new Gson().toJson(model).getBytes)
-      true
+      (true, model)
     } catch {
       case ex: Exception =>
         error(s"sync to zk url: ${path} error!", ex)
-        false
+        (false, null)
     }
-
   }
 }

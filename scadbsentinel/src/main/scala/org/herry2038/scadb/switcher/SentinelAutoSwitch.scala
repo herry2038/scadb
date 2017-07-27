@@ -25,8 +25,10 @@ package org.herry2038.scadb.switcher
 
 import java.util.concurrent.ConcurrentHashMap
 
+import com.google.gson.Gson
+import org.herry2038.scadb.conf.ScadbConf
 import org.herry2038.scadb.conf.cluster.ClusterModel.{MasterModel, MySQLStatus}
-import org.herry2038.scadb.conf.cluster.{Role, Status, SwitchModel}
+import org.herry2038.scadb.conf.cluster.{ClusterConf, Role, Status, SwitchModel}
 import org.herry2038.scadb.sentinel.SentinelAutoswitchService
 import org.herry2038.scadb.util.Logging
 
@@ -76,7 +78,7 @@ class SentinelAutoSwitch(val cluster: String) extends Logging {
         masterIsDown = instance._2.status != Status.START
       } else if ( instance._2.role == Role.CANDIDATE ) {
         if ( instance._2.status == Status.START) {
-          if ( bestCandidate == null || SentinelAutoswitchService.switcher.isBetterThan(instance._2, bestStatus)) {
+          if ( bestCandidate == null || SentinelAutoswitchService.switcher.isBetterThan(instance._1, instance._2, bestCandidate, bestStatus)) {
             bestCandidate = instance._1
             bestStatus = instance._2
           }
@@ -86,6 +88,18 @@ class SentinelAutoSwitch(val cluster: String) extends Logging {
     (masterIsDown || masterNotExists, bestCandidate)
   }
 
+  def setHostToStop(host: String): Unit = {
+    val status = instances.get(host)
+    val newStatus = new MySQLStatus(status.zoneid, status.role, Status.STOP, status.delaySeconds)
+    instances.put(host, newStatus)
+    val parts = cluster.split("\\.")
+    val path = ClusterConf.path(parts(0), parts(1))
+    ScadbConf.client.setData().forPath(path + "/" + host, new Gson().toJson(newStatus).getBytes())
+  }
+
+  def validHosts(): Iterable[String] = {
+    instances.flatMap(instance => if (instance._2.status == Status.START ) Some(instance._1) else None)
+  }
 
   def checkSwitch(): Unit = {
     if ( !SentinelAutoswitchService.started || clusterModel.switchMode == SwitchModel.MANUAL ) return
@@ -93,13 +107,17 @@ class SentinelAutoSwitch(val cluster: String) extends Logging {
     val (isDown, bestCandidate) = checkMasterIsDown
 
     if ( isDown  ) {
-      info(s"autoswitch cluster: ${cluster} found ${clusterModel.currentMaster} is down, will switch to ${bestCandidate}")
       if ( bestCandidate != null ) {
-        if (SentinelAutoswitchService.switcher.switch(this, bestCandidate)) {
+        info(s"autoswitch cluster: ${cluster} found ${clusterModel.currentMaster} is down, will switch to ${bestCandidate}")
+        val (switchResult, switchModel) = SentinelAutoswitchService.switcher.switch(this, bestCandidate)
+        if (switchResult) {
+          this.uptMasterModel(switchModel)
           info(s"autoswitch cluster: ${cluster} , switch to ${bestCandidate} succeed!!!")
         } else {
           warn(s"autoswitch cluster: ${cluster} , switch to ${bestCandidate} failed!!!")
         }
+      } else {
+        info(s"autoswitch cluster: ${cluster} found ${clusterModel.currentMaster} is down, cannot find a candidate!")
       }
     }
   }

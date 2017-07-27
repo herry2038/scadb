@@ -23,6 +23,12 @@
     <!-- Core dependencies -->
     <dependency>
       <groupId>org.herry2038.scadb</groupId>
+      <artifactId>scadb-tools_${scala.binary.version}</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.herry2038.scadb</groupId>
       <artifactId>scadb-network-common_${scala.binary.version}</artifactId>
       <version>${project.version}</version>
     </dependency>

@@ -29,7 +29,7 @@ import com.google.gson.Gson
 import org.herry2038.scadb.conf.ScadbConf
 import org.herry2038.scadb.conf.cluster.{Status, ClusterConf}
 import org.herry2038.scadb.conf.cluster.ClusterModel.MySQLStatus
-import org.herry2038.scadb.util.Logging
+import org.herry2038.scadb.util.{MySQLConnection, Logging}
 
 
 class SentinelHost(val cluster: String, val instance: String, mysqlStatus: MySQLStatus) extends Logging {
@@ -50,7 +50,7 @@ class SentinelHost(val cluster: String, val instance: String, mysqlStatus: MySQL
 
 
   private val mysqlUrl = s"jdbc:mysql://${instance}/?connectTimeout=5000&socketTimeout=5000&jdbcCompliantTruncation=false&useUnicode=true&characterEncoding=UTF-8"
-  private val mysqlConnection = new MySQLConnection(mysqlUrl)
+  private val mysqlConnection = new MySQLConnection(mysqlUrl, ScadbConf.backuser, ScadbConf.backpass)
 
   private def setLastStatus(dbStatus: MySQLStatus) = {
     this.lastMySQLStatus = dbStatus
