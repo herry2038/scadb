@@ -8,11 +8,13 @@ scadb是一个轻量级的高性能MySQL中间件产品，可以支持MySQL分�
 
 2、分库分表
 
-3、数据导入和导出
+3、[数据导入和导出](http://www.jianshu.com/p/216c29d747a4)
 
 4、机房感知功能
 
 5、跨机房的高可用性
+
+
 
 系统架构请访问：http://www.jianshu.com/p/f4ee226a1ba9
 
